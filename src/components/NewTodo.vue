@@ -14,6 +14,9 @@ export default {
         }
     },
     methods: {
+        /**
+         * Method to send a personalized event if the input is not empty : ADD a new TASK
+         */
         NewTask() {
             if(this.titleTask != "") {
                 this.$emit('sendTask', this.titleTask)

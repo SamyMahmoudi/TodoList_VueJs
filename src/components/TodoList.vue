@@ -12,32 +12,42 @@
     </article>
 </template>
 <script>
-export default {
-    props: {
-        tasks: {
-            type: Array
-        }
-    },
-    data() {
-        return {
-
-        }
-    },
-    methods : {
-        check(index) {
-            this.$emit('check', index)
+    export default {
+        /**
+         * props to GET tasks[] from TodoCard parent component
+         */
+        props: {
+            tasks: {
+                type: Array
+            }
         },
-        removeTask(index) {
-            this.$emit('remover', index)
-        },
-        removeAllTasks() {
-              this.$emit('removeAllTasks')
-        },
-        removeAllTasksDone() {
-            this.$emit('removeAllTasksDone')
+        methods : {
+            /**
+            * Method to send personalized event: CHECK a Task
+            */
+            check(index) {
+                this.$emit('check', index)
+            },
+            /**
+            * Method to send personalized event : REMOVE a Task
+            */
+            removeTask(index) {
+                this.$emit('remover', index)
+            },
+            /**
+            * Method to send personalized event : REMOVE all Tasks
+            */
+            removeAllTasks() {
+                this.$emit('removeAllTasks')
+            },
+            /**
+            * Method to send personalized event : REMOVE all Tasks done
+            */
+            removeAllTasksDone() {
+                this.$emit('removeAllTasksDone')
+            }
         }
     }
-}
 </script>
 <style scoped>
     .oneTask {

@@ -12,15 +12,24 @@
     </article>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex'
-export default {
-    methods: {
-        ...mapActions(['removeTask', 'checkTask', 'removeAllTasks', 'removeAllTasksDone'])
-    },
-    computed: {
-        ...mapState(['tasks'])
+    /**
+    * Import state tasks[] && actions from the store
+    */
+    import { mapState, mapActions } from 'vuex'
+    export default {
+        methods: {
+            /**
+             * Actions 'removeTask', 'checkTask', 'removeAllTasks', 'removeAllTasksDone'
+             */
+            ...mapActions(['removeTask', 'checkTask', 'removeAllTasks', 'removeAllTasksDone'])
+        },
+        computed: {
+            /**
+             * State tasks[]
+             */
+            ...mapState(['tasks'])
+        }
     }
-}
 </script>
 <style scoped>
     .oneTask {

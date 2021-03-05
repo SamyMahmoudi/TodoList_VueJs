@@ -6,6 +6,9 @@
 </template>
 
 <script>
+/**
+ * Import actions from the store
+ */
 import { mapActions } from 'vuex'
 
 export default {
@@ -15,6 +18,7 @@ export default {
         }
     },
     methods: {
+        
         ...mapActions(["createTask"]),
         NewTask() {
             if(this.titleTask != "") {

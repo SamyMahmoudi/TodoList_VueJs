@@ -1,8 +1,8 @@
 <template>
     <div id="todoCard">
         <header>
-            <span>{{ RecupDate }}</span>
-            <h1>{{ titre }}</h1>
+            <span>{{  DateOfTheDay }}</span>
+            <h1>{{ title }}</h1>
             <p>{{ tasks.length }} 
                 <span v-if="tasks.length <= 1">Tâche</span> 
                 <span v-else>Tâches</span>
@@ -13,24 +13,37 @@
     </div>
 </template>
 <script>
+    /**
+     * Import state tasks[] from the store
+     */
     import { mapState } from 'vuex'
+    /**
+     * Import components NewTodo & TodoList
+     */
     import NewTodo from "./NewTodo.vue"
     import TodoList from "./TodoList.vue"
 export default {
+    /**
+     * key components for NewTodo & Todolis
+     */
     components: {
         NewTodo,
         TodoList
     },
     data() {
         return {
-            titre: "VueJs Tutorial Todo List",
+            title: "VueJs Tutorial Todo List",
         }
     },
-    methods: {
-    },
     computed: {
+        /**
+         * State tasks[]
+         */
         ...mapState(['tasks']),
-        RecupDate: function() {
+        /**
+         * get Date of the day
+         */
+        DateOfTheDay: function() {
             let dateOfDay = new Date();
             let months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
             let month = months[dateOfDay.getMonth()];

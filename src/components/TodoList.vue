@@ -6,8 +6,8 @@
         </div>
         <i  @click="removeTask(index)" class="fas fa-trash trash" ></i>
     </article>
-    <article class="btn">
-        <button class="removeAll" @click="removeAllTasks()">Tout supprimer</button>
+    <article v-if="tasks.length >= 1" class="btn">
+        <button  class="removeAll" @click="removeAllTasks()">Tout supprimer</button>
         <button class="removeTaskDone" @click="removeAllTasksDone()">Supprimer les tâches effectuées</button>
     </article>
 </template>

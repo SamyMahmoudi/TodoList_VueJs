@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 
 export default {
     data() { 
@@ -15,10 +14,9 @@ export default {
         }
     },
     methods: {
-        ...mapActions(["createTask"]),
         NewTask() {
             if(this.titleTask != "") {
-                this.createTask(this.titleTask)
+                this.$emit('sendTask', this.titleTask)
                 this.titleTask = ""
             }
         }

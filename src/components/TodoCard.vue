@@ -8,12 +8,11 @@
                 <span v-else>Tâches</span>
             </p>
         </header>
-        <new-todo/>
-        <todo-list/>
+        <new-todo @sendTask="addTask"/>
+        <todo-list @check="checkTask" @remover="removerTask" :tasks="tasks" @removeAllTasks="removerAllTasks" @removeAllTasksDone="removerAllTasksDone"/>
     </div>
 </template>
 <script>
-    import { mapState } from 'vuex'
     import NewTodo from "./NewTodo.vue"
     import TodoList from "./TodoList.vue"
 export default {
@@ -24,12 +23,28 @@ export default {
     data() {
         return {
             titre: "VueJs Tutorial Todo List",
+            tasks: []
         }
     },
     methods: {
+        addTask(task) {
+            let newTask = { name: task, statut: false };
+            this.tasks.push(newTask)
+        },
+        checkTask(index) {
+            this.tasks[index].statut = !this.tasks[index].statut;
+        },
+        removerTask(task) {
+            this.tasks.splice(task, 1);
+        },
+        removerAllTasks(){
+            this.tasks = []
+        },
+        removerAllTasksDone(){
+            this.tasks = this.tasks.filter((task) => task.statut === false);
+        }
     },
     computed: {
-        ...mapState(['tasks']),
         RecupDate: function() {
             let dateOfDay = new Date();
             let months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];

@@ -1,7 +1,7 @@
 <template>
     <article class="oneTask" v-for="(task, index) in tasks" :key="index">
         <div>
-            <input @click="checkTask(index)" type="checkbox" name="" class="inputChecked">
+            <input @click="check(index)" type="checkbox" name="" class="inputChecked">
             <p :class="{checked:task.statut}">{{ task.name }}</p>
         </div>
         <i  @click="removeTask(index)" class="fas fa-trash trash" ></i>
@@ -12,13 +12,30 @@
     </article>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex'
 export default {
-    methods: {
-        ...mapActions(['removeTask', 'checkTask', 'removeAllTasks', 'removeAllTasksDone'])
+    props: {
+        tasks: {
+            type: Array
+        }
     },
-    computed: {
-        ...mapState(['tasks'])
+    data() {
+        return {
+
+        }
+    },
+    methods : {
+        check(index) {
+            this.$emit('check', index)
+        },
+        removeTask(index) {
+            this.$emit('remover', index)
+        },
+        removeAllTasks() {
+              this.$emit('removeAllTasks')
+        },
+        removeAllTasksDone() {
+            this.$emit('removeAllTasksDone')
+        }
     }
 }
 </script>

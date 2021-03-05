@@ -11,7 +11,7 @@ import { mapActions } from 'vuex'
 export default {
     data() { 
         return {
-            titleTask: null,
+            titleTask: "",
         }
     },
     methods: {
@@ -36,9 +36,14 @@ export default {
     input {
         margin-right: 20px;
         border:none;
-        border-bottom: solid 2px greenyellow;
+        border-bottom: solid 2px rgb(0, 221, 192);
         outline: none;
         padding: 8px 24px;   
+    }
+    .fas {
+        transform: scale(2,2);
+        color: rgb(0, 185, 93);
+        cursor: pointer;
     }
 
 </style>

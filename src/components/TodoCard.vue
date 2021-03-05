@@ -23,8 +23,7 @@ export default {
     },
     data() {
         return {
-            titre: "VueJs Tutorial TodoList",
-            nbTache: 0,
+            titre: "VueJs Tutorial Todo List",
         }
     },
     methods: {
@@ -51,6 +50,7 @@ export default {
     margin: 20px auto 60px;
     border-radius: 20px;
     padding: 0px 0px 60px;
+    box-shadow: 0px 5px 10px 0px rgb(105, 107, 0);
 }
 
 #app header {
@@ -60,10 +60,11 @@ export default {
     align-items: center;
     justify-content: space-between;
     border-radius: 20px 20px 0px 0px;
-    box-shadow: 0px 3px 4px 0px rgb(40, 41, 0);
+    box-shadow: 0px 3px 1px 0px rgb(236, 236, 236);
 }
 
 #app h1 {
-    text-align: center;
+    color:rgb(0, 221, 192);
+    font-weight: bold;
 }
 </style>
